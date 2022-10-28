@@ -1,51 +1,59 @@
-import debug from 'debug';
-debug('comp-229');
-import http from 'http';
-import { HttpError} from 'http-errors';
+/*
 
-import app from './server/config/app.js';
+File name: server.js
+Student name: Jason Lo
+Student ID: 301234232
+Date: October 28, 2022
 
-const PORT = normalizePort(process.env.PORT || '3000');
-app.set('port', PORT);
+*/
+
+// This file is responsible for creating the server and associating it with the web app that
+// we have created
+
+import debug from "debug";
+debug("comp-229");
+import http from "http";
+import { HttpError } from "http-errors";
+
+import app from "./server/config/app.js";
+
+const PORT = normalizePort(process.env.PORT || "3000");
+app.set("port", PORT);
 
 const server = http.createServer(app);
 
 server.listen(PORT);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on("error", onError);
+server.on("listening", onListening);
 
-function normalizePort(val){
-    var port = parseInt(val, 10);
-    if(isNaN(port)){
-        return val;
-    }
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+  if (isNaN(port)) {
+    return val;
+  }
 
-    if(port >= 0){
-        return port;
-    }
+  if (port >= 0) {
+    return port;
+  }
 
-    return false;
-};
+  return false;
+}
 
-function onError(error) 
-{
-  if (error.syscall !== 'listen') 
-  {
+function onError(error) {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  let bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  let bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -53,9 +61,8 @@ function onError(error)
   }
 }
 
-function onListening() 
-{
+function onListening() {
   let addr = server.address();
-  let bind = 'pipe ' + addr;
-  debug('Listening on ' + bind);
+  let bind = "pipe " + addr;
+  debug("Listening on " + bind);
 }

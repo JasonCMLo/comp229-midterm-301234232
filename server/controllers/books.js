@@ -1,3 +1,15 @@
+/*
+
+File name: books.js (CONTROLLER)
+Student name: Jason Lo
+Student ID: 301234232
+Date: October 28, 2022
+
+*/
+
+// This file defines the functions to control the CRUD processing of books to be passed on
+// and used by each route in the render method as the callback
+
 // define the book model
 import booksModel from "../models/books.js";
 
